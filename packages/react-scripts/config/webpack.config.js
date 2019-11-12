@@ -37,6 +37,10 @@ const eslint = require('eslint');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
 // @remove-on-eject-end
 const postcssNormalize = require('postcss-normalize');
+const purgecss = require('@fullhuman/postcss-purgecss')({
+  content: ['./src/**/*.html', './src/**/*.js'],
+  defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+});
 
 const appPackageJson = require(paths.appPackageJson);
 
@@ -122,6 +126,9 @@ module.exports = function(webpackEnv) {
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
             postcssNormalize(),
+            require('tailwindcss'),
+            require('autoprefixer'),
+            ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
