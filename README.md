@@ -1,3 +1,20 @@
+# Personal fork of Create React App
+
+There are certain things that are setup over and over again for my personal
+frontend projects, it's better to generate them with a forked CRA instead of
+ejecting/manually adding dependencies in.
+
+### Included in the app
+
+1. `redux` for state management
+1. `react-router-dom` for routing (`qs` for query string parsing included too)
+1. `lodash` for common utilities
+1. `tailwindcss` for styling
+
+Default CRA README can be found below.
+
+---
+
 # Create React App [![Build Status](https://dev.azure.com/facebook/create-react-app/_apis/build/status/facebook.create-react-app?branchName=master)](https://dev.azure.com/facebook/create-react-app/_build/latest?definitionId=1&branchName=master) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/facebook/create-react-app/blob/master/CONTRIBUTING.md)
 
 Create React apps with no build configuration.
